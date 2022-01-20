@@ -27,7 +27,6 @@ Tá Aí Patrão!
 
 **Bebidas Convensionais** 🥤
 
-
 **1-Sucos Naturais**
 - Suco de uva
 - Suco de morango
@@ -51,7 +50,6 @@ Tá Aí Patrão!
 
 
 **ALIMENTAMENTOS NORMAIS**
-
 
 **1-Tipicas Brasileiras**
 - Feijoada
