@@ -1,42 +1,13 @@
-const Sequelize = require('sequelize')
 const fs = require('fs')
 const texts = require('./Texts');
 const deployCommands = require('./deploy-commands')
 
 const { Client, Intents, Collection, Presence } = require('discord.js')
 const { token, prefix } = require('./config.json')
+const { Tags } = require('./database')
 
 const client = new Client({ 
     intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES]
-})
-
-const sequelize = new Sequelize('database', 'user', 'password', {
-    host: 'localhost',
-    dialect: 'sqlite',
-    logging: false,
-    storage: 'database.sqlite'
-})
-
-/*
- * equivalent to: CREATE TABLE tags(
- * name VARCHAR(255) UNIQUE,
- * description TEXT,
- * username VARCHAR(255),
- * usage_count  INT NOT NULL DEFAULT 0
- * );
-*/
-const Tags = sequelize.define('tags', {
-    name: {
-        type: Sequelize.STRING,
-        unique: true.valueOf,
-    },
-    description: Sequelize.TEXT,
-    username: Sequelize.STRING,
-    usage_count: {
-        type: Sequelize.INTEGER,
-        defaultValue: 0,
-        allowNull: false,
-    }
 })
 
 deployCommands()
@@ -54,7 +25,10 @@ for (const file of commandFiles) {
 }
 
 client.once('ready', () => {
-	console.log('Ready!');
+	console.log('Ready!')
+
+    Tags.sync({ force: true }) // Recreate the table every time on startup.
+    //Tags.sync()
 })
 
 client.on('interactionCreate', async interaction => {
@@ -79,6 +53,29 @@ client.on('interactionCreate', async interaction => {
             ephemeral: true 
         })
     }
+/*
+    switch (command) {
+        case 'addtag':
+            
+        break;
+
+        case 'tag':
+            const tagName = interaction.options.getString('name')
+
+            // equivalent to: SELECT * FROM tags WHERE name = 'tagName' LIMIT 1;
+            const tag = await Tags.findOne({ where: { name: tagName }})
+
+            if (tag) {
+                // equivalent to: UPDATE tags SET usage_count = usage_count + 1 WHERE name = 'tagName';
+                tag.increment('usage_count')
+
+                return interaction.reply(tag.get('description'))
+            }
+
+            return interaction.reply(`Could not fing tag: ${ tagName }`)
+        break;
+    }
+    */
 })
 
 client.on('messageCreate', async message => {
