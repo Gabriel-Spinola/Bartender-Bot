@@ -14,6 +14,7 @@ deployCommands()
 
 client.commands = new Collection()
 
+// Create an array of command files
 const commandFiles = fs.readdirSync('./Commands').filter(file => file.endsWith('.js'))
 
 for (const file of commandFiles) {
@@ -27,7 +28,7 @@ for (const file of commandFiles) {
 client.once('ready', () => {
 	console.log('Ready!')
 
-    Tags.sync({ force: true }) // Recreate the table every time on startup.
+    Tags.sync({ force: true /* Recreate the database table every time on startup. */}) 
     //Tags.sync()
 })
 
@@ -53,6 +54,7 @@ client.on('interactionCreate', async interaction => {
             ephemeral: true 
         })
     }
+
 /*
     switch (command) {
         case 'addtag':

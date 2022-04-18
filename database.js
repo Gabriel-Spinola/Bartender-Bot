@@ -7,6 +7,15 @@ const sequelize = new Sequelize('database', 'user', 'password', {
     storage: 'database.sqlite'
 })
 
+// Database Model   
+/** 
+ * equivalent to: CREATE TABLE tags(
+ * name VARCHAR(255) UNIQUE,
+ * description TEXT,
+ * username VARCHAR(255),
+ * usage_count  INT NOT NULL DEFAULT 0
+ * );
+*/
 const Tags = sequelize.define('tags', {
     name: {
         type: Sequelize.STRING,

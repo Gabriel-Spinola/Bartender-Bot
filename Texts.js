@@ -1,6 +1,6 @@
 module.exports = {
     cardapio: `
-Tá Aí Patrão!
+Tá Aí Patrão(oa)!
 
 
 **BEBIDAS GASOSAS** 🥃
