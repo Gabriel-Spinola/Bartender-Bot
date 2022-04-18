@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { Tags } = require('../database')
+const { roles } = require('../config.json')
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -7,6 +8,9 @@ module.exports = {
 		.setDescription('Show Tags (Placeholder)')
         .addStringOption(option => option.setName('name').setDescription('Enter a name')),
     async execute(interaction) {
+        if (!interaction.member.roles.cache.has(roles.devs))
+            return;
+
         const tagName = interaction.options.getString('name');
 
         // equivalent to: SELECT * FROM tags WHERE name = 'tagName' LIMIT 1;
