@@ -50,36 +50,13 @@ client.on('interactionCreate', async interaction => {
         console.log(error)
 
         await interaction.reply({ 
-            content: 'Eita! Houve um erro ao executar o seu pedido, pode fala com a administração que ele resolvem seu problema .',
+            content: 'Eita! Houve um erro ao executar o seu pedido, pode fala com a administração que ele resolvem seu problema.',
             ephemeral: true 
         })
     }
-
-/*
-    switch (command) {
-        case 'addtag':
-            
-        break;
-
-        case 'tag':
-            const tagName = interaction.options.getString('name')
-
-            // equivalent to: SELECT * FROM tags WHERE name = 'tagName' LIMIT 1;
-            const tag = await Tags.findOne({ where: { name: tagName }})
-
-            if (tag) {
-                // equivalent to: UPDATE tags SET usage_count = usage_count + 1 WHERE name = 'tagName';
-                tag.increment('usage_count')
-
-                return interaction.reply(tag.get('description'))
-            }
-
-            return interaction.reply(`Could not fing tag: ${ tagName }`)
-        break;
-    }
-    */
 })
 
+// Comando de texto
 client.on('messageCreate', async message => {
     if (message.content === `${ prefix }cardapio`) {
         await message.reply({
