@@ -7,9 +7,9 @@ const sequelize = new Sequelize('database', 'user', 'password', {
     storage: 'database.sqlite'
 })
 
-const CurrencyShop = require('.models/CurrencyShop.js')(sequelize, sequelize.DataTypes)
-require('./Models/UserItems.js')(sequelize, sequelize.DataTypes)
-require('./Models/Users.js')(sequelize, sequelize.DataTypes)
+const CurrencyShop = require('./Models/CurrencyShop')(sequelize, Sequelize.DataTypes)
+require('./Models/UserItem')(sequelize, Sequelize.DataTypes)
+require('./Models/Users')(sequelize, Sequelize.DataTypes)
 
 const force = process.argv.includes('--force') || process.argv.includes('-f')
 
