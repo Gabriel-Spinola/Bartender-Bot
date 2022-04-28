@@ -2,7 +2,7 @@ const fs = require('fs')
 const texts = require('./Texts');
 const deployCommands = require('./deploy-commands')
 
-const { Client, Intents, Collection, Presence } = require('discord.js')
+const { Client, Intents, Collection } = require('discord.js')
 const { token, prefix } = require('./config.json')
 const { Tags } = require('./database')
 

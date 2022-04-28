@@ -4,7 +4,7 @@ const { roles } = require('../config.json')
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('showalltags')
+		.setName('deletetag')
 		.setDescription('Show All Tags (Placeholder)'),
     async execute(interaction) {
         if (!interaction.member.roles.cache.has(roles.devs))
