@@ -50,7 +50,7 @@ client.on('interactionCreate', async interaction => {
         console.log(error)
 
         await interaction.reply({ 
-            content: 'Eita! Houve um erro ao executar o seu pedido, pode fala com a administração que ele resolvem seu problema.',
+            content: 'Eita! Houve um erro ao executar o seu pedido, pode fala com a administração que eles resolvem seu problema :).',
             ephemeral: true 
         })
     }
