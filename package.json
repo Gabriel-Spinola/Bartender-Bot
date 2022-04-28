@@ -24,6 +24,7 @@
     "discord.js": "^13.6.0",
     "nodemon": "^2.0.15",
     "sequelize": "^6.13.0",
-    "sqlite3": "^4.2.0"
+    "sqlite3": "^5.0.5",
+    "ytdl-core": "^4.11.0"
   }
 }

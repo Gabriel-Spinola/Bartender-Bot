@@ -20,6 +20,7 @@
 >- [Node.js](https://nodejs.dev)
 >- [DisCloud](https://discloudbot.com)
 	>- [Sequelize Database](https://sequelize.org/docs/v6/#:~:text=Sequelize%20is%20a%20promise-based,loading%2C%20read%20replication%20and%20more.)
+>- [Discord.js/rest](https://www.npmjs.com/package/@discordjs/rest)
 >		
 >##### Others
 >- [Nodemon](https://www.npmjs.com/package/nodemon)
