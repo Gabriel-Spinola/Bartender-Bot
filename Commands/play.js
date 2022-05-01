@@ -8,7 +8,7 @@ module.exports = {
         .addStringOption(option => option.setName('name').setDescription('wdwdw')),
     async execute(interaction) {
 
-        
+        const voicechannel = interaction.member.voice.channel
         console.log(`${voicechannel}`);
 
         try{
