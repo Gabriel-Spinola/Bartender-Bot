@@ -8,20 +8,25 @@ module.exports = {
         .addStringOption(option => option.setName('name').setDescription('wdwdw')),
     async execute(interaction) {
 
-        const voicechannel = interaction.member.voice.channel
-        console.log(`${voicechannel}`);
+        const queue = new Map();
 
-        try{
-            //voice channel
-            if(!voicechannel) {
-                await interaction.reply('Entre em algum canal de voz')
-            }
+        const namesong = interaction.options.getString('name')
+        
+        
+
+        async function init(message) {
             
-            await interaction.reply(`musca iniciada ${interaction.user.username} no canal: ${voicechannel}`);
-
-        } 
-        catch(error) {
-            await interaction.reply('Algo de errado não está certo');
+            const voicechannel = message.member.voice.channel
+            if(!voicechannel) {
+                return message.channel.send(
+                " POR AMABILIDADE, ('caps') CONDuza-se para a reunião virtual, para que assim, todavia, 'pozzamos' gozar de seu requinte gosto à arte musical "
+                );
+            } else {
+                return await voicechannel.join();
+            }
+        
         }
+
+        init(interaction)
     },
 };
